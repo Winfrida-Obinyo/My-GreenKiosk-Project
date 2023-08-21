@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'inventory/product_upload.css' %}">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .upload-form {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .upload-form input[type="text"],
+        .upload-form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .submit {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</head>
+<body>
+    <h3  >Edit Order Form</h3>
+    <form method="POST", class = "upload-form">
+        {% csrf_token%}
+        {{form.as_p}}
+        <button  class="submit">Save</button >
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

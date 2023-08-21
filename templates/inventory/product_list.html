@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: green;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: green;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-item h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .product-item a {
+            display: inline-block;
+            background-color:green;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .product-item a:hover {
+            background-color:greenyellow;
+        }
+        .prod{
+            color: white;
+            text-align: center;
+            font-size: xx-large;
+            font-weight: 800;
+        }
+    </style>
+    
+</head>
+<body>
+  <h1 class="prod">My Products</h1>
+       <div class="product-list">
+            {%for product in products%}
+
+            <div class="product-item">
+                <img src="{{product.image.url}}"/>
+                <h3>{{product.name}}</h3>
+                <h4>{{product.description}}</h4>
+                <h3>{{product.price}}</h3>
+                    <a href="{% url 'product_detail_view' id=product.id %}">View details</a>  
+                    <!-- <a href="{% url 'product_upload_view' id = product.id}">Edit details</a> -->
+            </div>  
+            {%endfor%}
+        </div>
+</body>
+</html>
